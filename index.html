@@ -15,6 +15,7 @@
         height: 50px;
         width: 50px;
         background: blue;
+        border-radius: 50%;
     }
     div.custom-tooltip span {
         visibility: hidden;
@@ -51,9 +52,10 @@
 
 <script>
 // Create viewer
-viewer = pannellum.viewer('panorama', ﻿{
+viewer = pannellum.viewer('panorama', {
     "showFullscreenCtrl":true,
     "autoLoad": true,
+    "showControls":true,
     "default": {
         "firstScene": "primera",
         "sceneFadeDuration": 1000
@@ -74,7 +76,14 @@ viewer = pannellum.viewer('panorama', ﻿{
                     "type": "scene",
                     "text": "Spring House or Dairy",
                     "sceneId": "segunda"
-                }
+                },
+                {
+                    "pitch": 14.1, //arriba - abajo
+                    "yaw": 1.5, // izq - der
+                    "cssClass": "custom-hotspot claseEjemplo",
+                    "createTooltipFunc": hotspot,
+                    "createTooltipArgs": "Baltimore Museum of Art"
+                },
             ]
         },
 
