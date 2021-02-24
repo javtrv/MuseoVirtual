@@ -54,38 +54,67 @@
 viewer = pannellum.viewer('panorama', ﻿{
     "showFullscreenCtrl":true,
     "autoLoad": true,
-    "type": "equirectangular",
-    "panorama": "titles/pont_de_bir_hakeim_560994.jpg",
-    "hotSpots": [
-        {
-            "pitch": 14.1, //arriba - abajo
-            "yaw": 1.5, // izq - der
-            "cssClass": "custom-hotspot claseEjemplo",
-            "createTooltipFunc": hotspot,
-            "createTooltipArgs": "Baltimore Museum of Art"
+    "default": {
+        "firstScene": "primera",
+        "sceneFadeDuration": 1000
+    },
+
+    "scenes": {
+        "primera": {
+            "title": "Mason Circle",
+            "hfov": 110,
+            "pitch": -3,
+            "yaw": 117,
+            "type": "equirectangular",
+            "panorama": "./titles/1.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -2.1,
+                    "yaw": 132.9,
+                    "type": "scene",
+                    "text": "Spring House or Dairy",
+                    "sceneId": "segunda"
+                }
+            ]
         },
-        {
-            "pitch": -9.4,
-            "yaw": 222.6,
-            "cssClass": "custom-hotspot",
-            "createTooltipFunc": hotspot,
-            "createTooltipArgs": "Art Museum Drive"
+
+        "segunda": {
+            "title": "Spring House or Dairy",
+            "hfov": 110,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "./titles/2.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -0.6,
+                    "yaw": 37.1,
+                    "type": "scene",
+                    "text": "Mason Circle",
+                    "sceneId": "tercera",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                }
+            ]
         },
-        {
-            "pitch": -0.9,
-            "yaw": 144.4,
-            "cssClass": "custom-hotspot",
-            "createTooltipFunc": hotspot,
-            "createTooltipArgs": "North Charles Street"
-        },
-        {
-            "pitch": 34.1,
-            "yaw": 10.5,
-            "type": "info",
-            "text": "Baltimore Museum of Art",
-            "URL": "https://artbma.org/"
-        },
-    ]
+        "tercera": {
+            "title": "Spring House or Dairy",
+            "hfov": 110,
+            "yaw": 5,
+            "type": "equirectangular",
+            "panorama": "./titles/3.jpg",
+            "hotSpots": [
+                {
+                    "pitch": -0.6,
+                    "yaw": 37.1,
+                    "type": "scene",
+                    "text": "Mason Circle",
+                    "sceneId": "primera",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                }
+            ]
+        }
+    }
 });
 
 
