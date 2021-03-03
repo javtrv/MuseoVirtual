@@ -16,7 +16,9 @@
 
 	<!-- Font awesome -->
 	<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+		integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+		crossorigin="anonymous" />
 	<!-- Glidejs -->
 	<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
 
@@ -42,32 +44,53 @@
 			border-radius: 50%;
 		}
 
-		#hotspot-monalisa{
+		#hotspot-monalisa {
 			width: 300px;
 			height: 450px;
 			background-image: url('images/1200px-Mona_Lisa.jpg');
 			background-size: contain;
 		}
 
-		.custom-hotspot i{
-			padding-top:5px;
-			padding-left:7px;
+		.custom-hotspot i {
+			padding-top: 5px;
+			padding-left: 7px;
 		}
 
 		.pnlm-hotspot {
-			background-image: url('images/flecha-adelante.svg')!important;
+			background-image: url('images/flecha-adelante.svg') !important;
 
 
 		}
 
-		#hotspot-concierto-icon{
+		#hotspot-zapato-icon {
+			width: 100px;
+			height: 100px;
+			background-image: url('images/zapato.svg');
+			background-size: contain;
+		}
+
+		@keyframes spin {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
+		}
+
+		#hotspot-blackhole-icon {
+			width: 100px;
+			height: 100px;
+			background-image: url('images/blackhole.svg');
+			background-size: contain;
+			filter: invert(1);
+			animation: spin 5s infinite;
+		}
+
+		#hotspot-concierto-icon {
 			width: 50px;
 			height: 50px;
 			background-image: url('images/1941126.svg');
 			background-size: contain;
 		}
 
-		#hotspot-galeria-icon{
+		#hotspot-galeria-icon {
 			width: 50px;
 			height: 50px;
 			background-image: url('images/galeria-arte.svg');
@@ -124,10 +147,13 @@
 					<div class="card card-ejemplo" id="estatua-1">
 						<div class="card-body">
 							<p>Un Amplio espacio donde frecuentemente hay eventos de Música de Cámara</p>
-						  <iframe loading="lazy" width="100%" height="350" src="https://www.youtube.com/embed/ZPRS5Wv7ynQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe loading="lazy" width="100%" height="350"
+								src="https://www.youtube.com/embed/ZPRS5Wv7ynQ" frameborder="0"
+								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen></iframe>
 						</div>
-					  </div>
-					
+					</div>
+
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -144,9 +170,11 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<p>El Retrato de Lisa Gherardini, esposa de Francesco del Giocondo, ​ 
-						más conocido como La Gioconda o La Mona Lisa, 
-						es una obra pictórica del polímata renacentista italiano Leonardo da Vinci. Fue adquirida por el rey Francisco I de Francia a comienzos del siglo XVI y desde entonces es propiedad del Estado francés.</p>
+					<p>El Retrato de Lisa Gherardini, esposa de Francesco del Giocondo, ​
+						más conocido como La Gioconda o La Mona Lisa,
+						es una obra pictórica del polímata renacentista italiano Leonardo da Vinci. Fue adquirida por el
+						rey Francisco I de Francia a comienzos del siglo XVI y desde entonces es propiedad del Estado
+						francés.</p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -154,7 +182,7 @@
 			</div>
 		</div>
 	</div>
->
+	>
 	<script>
 		// Create viewer
 		let pannellumViewer = pannellum.viewer('panorama', {
@@ -239,6 +267,16 @@
 								"id": "hotspot-galeria-icon"
 							},
 						},
+						{
+							"pitch": 10, //arriba - abajo
+							"yaw": 32, // izq - der
+							"cssClass": "custom-hotspot-icon",
+							"createTooltipFunc": hotspot,
+							"createTooltipArgs": {
+								"title": "Agujero negro al inframundo o al mas alla",
+								"id": "hotspot-blackhole-icon"
+							},
+						},
 					]
 				},
 				"tercera": {
@@ -271,7 +309,7 @@
 				"cuarta": {
 					"title": "Final",
 					"hfov": 110,
-					"yaw": 5,
+					"yaw": 150,
 					"type": "equirectangular",
 					"panorama": "./titles/photo_2021-03-02_23-20-08.jpg",
 					"hotSpots": [
@@ -294,6 +332,16 @@
 								"id": "hotspot-monalisa"
 							},
 						},
+						{
+							"pitch": -25, //arriba - abajo
+							"yaw": 175, // izq - der
+							"cssClass": "custom-hotspot-icon",
+							"createTooltipFunc": hotspot,
+							"createTooltipArgs": {
+								"title": "Zapatos de David pero sin David",
+								"id": "hotspot-zapato-icon"
+							},
+						},
 					]
 				}
 			}
@@ -312,10 +360,7 @@
 			hotSpotDiv.classList.add('custom-tooltip');
 			// Custom ID
 			hotSpotDiv.id = args.id;
-			
-			// var icon = document.createElement('i');
-			// icon.classList.add('fas fa-flag');
-			// hotSpotDiv.appendChild(icon);
+
 			// Create span element to tooltip
 			var span = document.createElement('span');
 			span.innerHTML = args.title;
@@ -336,17 +381,17 @@
 			// Verifica que ya cargo el viewer
 			if (pannellumViewer.isLoaded()) {
 
-				$("#a").click(function(){
+				$("#a").click(function () {
 					$('#myModal').modal('toggle');
 				});
-				$("#hotspot-concierto-icon").click(function(){
+				$("#hotspot-concierto-icon").click(function () {
 					$('#myModal').modal('toggle');
 				});
 				$('#a').append('<i class="fas fa-music"></i>')
 				// $('#a').append('<img src="images/1941126.svg" alt="Concierto" width="20" height="20">')
 
 				console.log('ahora')
-				$("#hotspot-monalisa").click(function(){
+				$("#hotspot-monalisa").click(function () {
 					console.log('click')
 					$('#modal-monalisa').modal('toggle');
 				});
