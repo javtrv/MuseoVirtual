@@ -15,8 +15,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 	<!-- Font awesome -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
+	<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 	<!-- Glidejs -->
 	<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
 
@@ -39,7 +39,39 @@
 			width: 30px;
 			border: 2px solid black;
 			background-color: rgba(255, 94, 0, 0.5);
-			border-radius: 10px;
+			border-radius: 50%;
+		}
+
+		#hotspot-monalisa{
+			width: 300px;
+			height: 450px;
+			background-image: url('images/1200px-Mona_Lisa.jpg');
+			background-size: contain;
+		}
+
+		.custom-hotspot i{
+			padding-top:5px;
+			padding-left:7px;
+		}
+
+		.pnlm-hotspot {
+			background-image: url('images/flecha-adelante.svg')!important;
+
+
+		}
+
+		#hotspot-concierto-icon{
+			width: 50px;
+			height: 50px;
+			background-image: url('images/1941126.svg');
+			background-size: contain;
+		}
+
+		#hotspot-galeria-icon{
+			width: 50px;
+			height: 50px;
+			background-image: url('images/galeria-arte.svg');
+			background-size: contain;
 		}
 
 		div.custom-tooltip span {
@@ -89,22 +121,46 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<p>Un Amplio espacio donde frecuentemente hay eventos de Música de Cámara</p>
+					<div class="card card-ejemplo" id="estatua-1">
+						<div class="card-body">
+							<p>Un Amplio espacio donde frecuentemente hay eventos de Música de Cámara</p>
+						  <iframe loading="lazy" width="100%" height="350" src="https://www.youtube.com/embed/ZPRS5Wv7ynQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+					  </div>
+					
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 				</div>
 			</div>
 		</div>
 	</div>
 
+	<div class="modal animate__fadeIn animate__animated" id="modal-monalisa" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered ">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">La Gioconda</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p>El Retrato de Lisa Gherardini, esposa de Francesco del Giocondo, ​ 
+						más conocido como La Gioconda o La Mona Lisa, 
+						es una obra pictórica del polímata renacentista italiano Leonardo da Vinci. Fue adquirida por el rey Francisco I de Francia a comienzos del siglo XVI y desde entonces es propiedad del Estado francés.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+>
 	<script>
 		// Create viewer
 		let pannellumViewer = pannellum.viewer('panorama', {
 			"showFullscreenCtrl": true,
 			"autoLoad": true,
-			"showControls": true,
+			// "showControls": true,
 			"default": {
 				"firstScene": "segunda",
 				"sceneFadeDuration": 1000
@@ -124,7 +180,7 @@
 							"yaw": 230,
 							"type": "scene",
 							"text": "Jardin",
-							"sceneId": "segunda"
+							"sceneId": "segunda",
 						},
 						{
 							"pitch": -3, //arriba - abajo
@@ -136,9 +192,18 @@
 								"id": "a"
 							},
 						},
+						{
+							"pitch": -8, //arriba - abajo
+							"yaw": 304, // izq - der
+							"cssClass": "custom-hotspot-icon",
+							"createTooltipFunc": hotspot,
+							"createTooltipArgs": {
+								"title": "Salon de Concierto",
+								"id": "hotspot-concierto-icon"
+							},
+						},
 					]
 				},
-
 				"segunda": {
 					"title": "Jardin",
 					"hfov": 110,
@@ -163,7 +228,17 @@
 							"sceneId": "primera",
 							"targetYaw": -23,
 							"targetPitch": 2
-						}
+						},
+						{
+							"pitch": 7, //arriba - abajo
+							"yaw": 250, // izq - der
+							"cssClass": "custom-hotspot-icon",
+							"createTooltipFunc": hotspot,
+							"createTooltipArgs": {
+								"title": "Galeria de Arte",
+								"id": "hotspot-galeria-icon"
+							},
+						},
 					]
 				},
 				"tercera": {
@@ -208,11 +283,27 @@
 							"sceneId": "tercera",
 							"targetYaw": -23,
 							"targetPitch": 2
-						}
+						},
+						{
+							"pitch": -3, //arriba - abajo
+							"yaw": 350, // izq - der
+							"cssClass": "custom-hotspot-img custom-img",
+							"createTooltipFunc": hotspot,
+							"createTooltipArgs": {
+								"title": "La Gioconda",
+								"id": "hotspot-monalisa"
+							},
+						},
 					]
 				}
 			}
 		});
+
+		pannellumViewer.on('load',
+			function () {
+				setTimeout(loadHotspot, 500);
+			}
+		);
 
 
 		// Hot spot creation function
@@ -241,12 +332,24 @@
 
 		// Funcion para cargar los modales
 		let loadHotspot = () => {
+			console.log('cargando')
 			// Verifica que ya cargo el viewer
 			if (pannellumViewer.isLoaded()) {
-				let a = document.getElementById('a')
-				a.onclick = () => {
+
+				$("#a").click(function(){
 					$('#myModal').modal('toggle');
-				}
+				});
+				$("#hotspot-concierto-icon").click(function(){
+					$('#myModal').modal('toggle');
+				});
+				$('#a').append('<i class="fas fa-music"></i>')
+				// $('#a').append('<img src="images/1941126.svg" alt="Concierto" width="20" height="20">')
+
+				console.log('ahora')
+				$("#hotspot-monalisa").click(function(){
+					console.log('click')
+					$('#modal-monalisa').modal('toggle');
+				});
 			}
 			else {
 				setTimeout(loadHotspot, 500);
@@ -254,16 +357,13 @@
 		}
 
 		// Esperar 0.5seg para ejecutar los eventos
-		setTimeout(loadHotspot, 500);
+		// setTimeout(loadHotspot, 500);
 
 
 		// new Glide('.glide').mount()
 
 	</script>
 
-	<script>
-
-	</script>
 
 
 </body>
