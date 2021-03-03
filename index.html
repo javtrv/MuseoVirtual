@@ -105,6 +105,15 @@
 		#hotspot-blackhole-icon {
 			width: 100px;
 			height: 100px;
+			/* background-image: url('images/blackhole.svg');
+			background-size: contain;
+			filter: invert(1); */
+			/* animation: spin 5s infinite; */
+		}
+
+		#hotspot-blackhole-icon img{
+			width: 100px;
+			height: 100px;
 			background-image: url('images/blackhole.svg');
 			background-size: contain;
 			filter: invert(1);
@@ -397,6 +406,11 @@
 			var span = document.createElement('span');
 			span.innerHTML = args.title;
 			hotSpotDiv.appendChild(span);
+
+			// var img = document.createElement('img');
+			// img.width = '100%';
+			// img.height = '100%';
+			// hotSpotDiv.appendChild(img);
 			span.style.width = span.scrollWidth - 20 + 'px';
 			span.style.marginLeft = -(span.scrollWidth - hotSpotDiv.offsetWidth) / 2 + 'px';
 			span.style.marginTop = -span.scrollHeight - 12 + 'px';
@@ -419,7 +433,9 @@
 				$("#hotspot-concierto-icon").click(function () {
 					$('#myModal').modal('toggle');
 				});
+				
 				$('#hotspot-concierto-icon').append('<img src="images/micro.svg" alt="Concierto" width="20" height="20">')
+				$('#hotspot-blackhole-icon').append('<img src="images/blackhole.svg" alt="Ni idea" width="100" height="100">')
 
 				$('#a').append('<i class="fas fa-music"></i>')
 
