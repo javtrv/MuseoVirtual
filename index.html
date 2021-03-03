@@ -105,8 +105,11 @@
 		#hotspot-blackhole-icon {
 			width: 100px;
 			height: 100px;
-			background-image: url('images/blackhole.svg');
-			background-size: contain;
+		}
+
+		#hotspot-blackhole-icon img{
+			width: 100px;
+			height: 100px;
 			filter: invert(1);
 			animation: spin 5s infinite;
 		}
@@ -420,6 +423,8 @@
 					$('#myModal').modal('toggle');
 				});
 				$('#hotspot-concierto-icon').append('<img src="images/micro.svg" alt="Concierto" width="20" height="20">')
+				$('#hotspot-blackhole-icon').append('<img src="images/blackhole.svg" alt="Blackhole">')
+
 
 				$('#a').append('<i class="fas fa-music"></i>')
 
