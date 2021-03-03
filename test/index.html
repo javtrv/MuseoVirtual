@@ -12,13 +12,10 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
-	<!-- Font awesome -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-	<!-- Glidejs -->
-	<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+		<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 
 	<!-- Pannellum JS -->
 	<script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
@@ -27,7 +24,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
 		crossorigin="anonymous"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<style>
 		#panorama {
 			width: 100%;
@@ -35,10 +32,9 @@
 		}
 
 		.custom-hotspot {
-			height: 30px;
-			width: 30px;
-			border: 2px solid black;
-			background-color: rgba(255, 94, 0, 0.5);
+			height: 50px;
+			width: 50px;
+			background: blue;
 			border-radius: 10px;
 		}
 
@@ -82,14 +78,14 @@
 	<!-- MODALES -->
 
 	<div class="modal animate__fadeIn animate__animated" id="myModal" tabindex="-1">
-		<div class="modal-dialog modal-dialog-centered ">
+		<div class="modal-dialog modal-dialog-centered " >
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">Salon de Concierto</h5>
+					<h5 class="modal-title">Modal title</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<p>Un Amplio espacio donde frecuentemente hay eventos de Música de Cámara</p>
+					<p>Modal body text goes here.</p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -106,33 +102,33 @@
 			"autoLoad": true,
 			"showControls": true,
 			"default": {
-				"firstScene": "segunda",
+				"firstScene": "primera",
 				"sceneFadeDuration": 1000
 			},
 
 			"scenes": {
 				"primera": {
-					"title": "Entrada",
+					"title": "Mason Circle",
 					"hfov": 110,
-					"pitch": 0,
-					"yaw": 300,
+					"pitch": -3,
+					"yaw": 117,
 					"type": "equirectangular",
-					"panorama": "./titles/photo_2021-03-02_23-20-24.jpg",
+					"panorama": "./titles/1.jpg",
 					"hotSpots": [
 						{
-							"pitch": 0,
-							"yaw": 230,
+							"pitch": -2.1,
+							"yaw": 132.9,
 							"type": "scene",
-							"text": "Jardin",
+							"text": "Spring House or Dairy",
 							"sceneId": "segunda"
 						},
 						{
-							"pitch": -3, //arriba - abajo
-							"yaw": 304, // izq - der
+							"pitch": 14.1, //arriba - abajo
+							"yaw": 1.5, // izq - der
 							"cssClass": "custom-hotspot claseEjemplo",
 							"createTooltipFunc": hotspot,
 							"createTooltipArgs": {
-								"title": "Salon de Concierto",
+								"title": "Baltimore Museum of Art",
 								"id": "a"
 							},
 						},
@@ -140,72 +136,36 @@
 				},
 
 				"segunda": {
-					"title": "Jardin",
+					"title": "Spring House or Dairy",
 					"hfov": 110,
-					"yaw": 260,
+					"yaw": 5,
 					"type": "equirectangular",
-					"panorama": "./titles/photo_2021-03-02_23-20-00.jpg",
+					"panorama": "./titles/2.jpg",
 					"hotSpots": [
 						{
 							"pitch": -0.6,
-							"yaw": 310,
+							"yaw": 37.1,
 							"type": "scene",
-							"text": "Pasillo",
+							"text": "Mason Circle",
 							"sceneId": "tercera",
-							"targetYaw": -23,
-							"targetPitch": 2
-						},
-						{
-							"pitch": -0.6,
-							"yaw": 180,
-							"type": "scene",
-							"text": "Inicio",
-							"sceneId": "primera",
 							"targetYaw": -23,
 							"targetPitch": 2
 						}
 					]
 				},
 				"tercera": {
-					"title": "Pasillo",
+					"title": "Spring House or Dairy",
 					"hfov": 110,
 					"yaw": 5,
 					"type": "equirectangular",
-					"panorama": "./titles/photo_2021-03-02_23-20-06.jpg",
+					"panorama": "./titles/3.jpg",
 					"hotSpots": [
 						{
-							"pitch": -5,
-							"yaw": 3,
+							"pitch": -0.6,
+							"yaw": 37.1,
 							"type": "scene",
-							"text": "Final",
-							"sceneId": "cuarta",
-							"targetYaw": -23,
-							"targetPitch": 2
-						},
-						{
-							"pitch": -5,
-							"yaw": 175,
-							"type": "scene",
-							"text": "Jardin",
-							"sceneId": "segunda",
-							"targetYaw": -23,
-							"targetPitch": 2
-						}
-					]
-				},
-				"cuarta": {
-					"title": "Final",
-					"hfov": 110,
-					"yaw": 5,
-					"type": "equirectangular",
-					"panorama": "./titles/photo_2021-03-02_23-20-08.jpg",
-					"hotSpots": [
-						{
-							"pitch": 1,
-							"yaw": 175,
-							"type": "scene",
-							"text": "Pasillo",
-							"sceneId": "tercera",
+							"text": "Mason Circle",
+							"sceneId": "primera",
 							"targetYaw": -23,
 							"targetPitch": 2
 						}
@@ -217,15 +177,9 @@
 
 		// Hot spot creation function
 		function hotspot(hotSpotDiv, args) {
-			// Custom class
+
 			hotSpotDiv.classList.add('custom-tooltip');
-			// Custom ID
 			hotSpotDiv.id = args.id;
-			
-			// var icon = document.createElement('i');
-			// icon.classList.add('fas fa-flag');
-			// hotSpotDiv.appendChild(icon);
-			// Create span element to tooltip
 			var span = document.createElement('span');
 			span.innerHTML = args.title;
 			hotSpotDiv.appendChild(span);
@@ -236,28 +190,25 @@
 
 
 		// ZONA DE EXPERIMENTACION
-
+		
 		// CARGAR LOS MODALES
 
 		// Funcion para cargar los modales
 		let loadHotspot = () => {
 			// Verifica que ya cargo el viewer
-			if (pannellumViewer.isLoaded()) {
+			if (pannellumViewer.isLoaded() ){
 				let a = document.getElementById('a')
 				a.onclick = () => {
 					$('#myModal').modal('toggle');
 				}
 			}
-			else {
+			else{
 				setTimeout(loadHotspot, 500);
 			}
 		}
 
 		// Esperar 0.5seg para ejecutar los eventos
 		setTimeout(loadHotspot, 500);
-
-
-		// new Glide('.glide').mount()
 
 	</script>
 
