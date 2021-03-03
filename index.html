@@ -74,6 +74,34 @@
 			100% { transform: rotate(360deg); }
 		}
 
+		@keyframes heartbeat
+		{
+		0%
+		{
+			transform: scale( .75 );
+		}
+		20%
+		{
+			transform: scale( 1 );
+		}
+		40%
+		{
+			transform: scale( .75 );
+		}
+		60%
+		{
+			transform: scale( 1 );
+		}
+		80%
+		{
+			transform: scale( .75 );
+		}
+		100%
+		{
+			transform: scale( .75 );
+		}
+		}
+
 		#hotspot-blackhole-icon {
 			width: 100px;
 			height: 100px;
@@ -86,8 +114,12 @@
 		#hotspot-concierto-icon {
 			width: 50px;
 			height: 50px;
-			background-image: url('images/1941126.svg');
-			background-size: contain;
+		}
+
+		#hotspot-concierto-icon img{
+			width: 50px;
+			height: 50px;
+			animation: heartbeat 1s infinite;
 		}
 
 		#hotspot-galeria-icon {
@@ -190,7 +222,7 @@
 			"autoLoad": true,
 			// "showControls": true,
 			"default": {
-				"firstScene": "segunda",
+				"firstScene": "primera",
 				"sceneFadeDuration": 1000
 			},
 
@@ -387,12 +419,11 @@
 				$("#hotspot-concierto-icon").click(function () {
 					$('#myModal').modal('toggle');
 				});
-				$('#a').append('<i class="fas fa-music"></i>')
-				// $('#a').append('<img src="images/1941126.svg" alt="Concierto" width="20" height="20">')
+				$('#hotspot-concierto-icon').append('<img src="images/micro.svg" alt="Concierto" width="20" height="20">')
 
-				console.log('ahora')
+				$('#a').append('<i class="fas fa-music"></i>')
+
 				$("#hotspot-monalisa").click(function () {
-					console.log('click')
 					$('#modal-monalisa').modal('toggle');
 				});
 			}
