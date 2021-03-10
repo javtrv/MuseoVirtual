@@ -127,8 +127,28 @@ let pannellumViewer = pannellum.viewer('panorama', {
                     "cssClass": "custom-hotspot-icon",
                     "createTooltipFunc": hotspot,
                     "createTooltipArgs": {
-                        "title": "Salon de Concierto",
+                        "title": "NOMBRE OBRA 1",
                         "id": "hotspot-obra-1-sala-2-img"
+                    },
+                },
+                {
+                    "pitch": -4, //arriba - abajo
+                    "yaw": 110, // izq - der
+                    "cssClass": "custom-hotspot-icon",
+                    "createTooltipFunc": hotspot,
+                    "createTooltipArgs": {
+                        "title": "NOMBRE OBRA 2",
+                        "id": "hotspot-obra-2-sala-2-img"
+                    },
+                },
+                {
+                    "pitch": -4, //arriba - abajo
+                    "yaw": 230, // izq - der
+                    "cssClass": "custom-hotspot-icon",
+                    "createTooltipFunc": hotspot,
+                    "createTooltipArgs": {
+                        "title": "NOMBRE OBRA 3",
+                        "id": "hotspot-obra-3-sala-2-img"
                     },
                 },
             ]
