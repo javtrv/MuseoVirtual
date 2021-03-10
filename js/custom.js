@@ -2,36 +2,43 @@
 let pannellumViewer = pannellum.viewer('panorama', {
     "showFullscreenCtrl": true,
     "autoLoad": true,
+    "multiResMinHfov":true,
     // "showControls": true,
     "default": {
-        "firstScene": "quinta",
+        "firstScene": "sala-2",
         "sceneFadeDuration": 1000
     },
 
     "scenes": {
-        "primera": {
-            "title": "Entrada",
+        "pasillo-1": {
+            "title": "Pasillo 1",
             "hfov": 110,
-            "pitch": 0,
-            "yaw": 300,
+            "yaw": 150,
             "type": "equirectangular",
-            "panorama": "./titles/photo_2021-03-02_23-20-24.jpg",
+            // "panorama": "./titles/hacienda/pasillo-1/pasillo-1.jpg",
+            // "panorama": "./titles/hacienda/pasillo-1/pasillo-1_4x.jpg",
+            "panorama": "./titles/hacienda/pasillo-1/pasillo-1_photos_v2_x4.jpg",
+            // "panorama": "./titles/hacienda/pasillo-1/pasillo-1-8x.jpg",
+            // "panorama": "./titles/hacienda/pasillo-1/pasillo-1-4x-qudratic.jpg",
+
             "hotSpots": [
                 {
-                    "pitch": 0,
-                    "yaw": 230,
+                    "pitch": 1,
+                    "yaw": 200,
                     "type": "scene",
-                    "text": "Jardin",
-                    "sceneId": "segunda",
+                    "text": "Pasillo 2",
+                    "sceneId": "pasillo-2",
+                    "targetYaw": -23,
+                    "targetPitch": 2
                 },
                 {
                     "pitch": -3, //arriba - abajo
-                    "yaw": 304, // izq - der
-                    "cssClass": "custom-hotspot claseEjemplo",
+                    "yaw": 150, // izq - der
+                    "cssClass": "custom-hotspot-img custom-img",
                     "createTooltipFunc": hotspot,
                     "createTooltipArgs": {
-                        "title": "Salon de Concierto",
-                        "id": "a"
+                        "title": "Mapa",
+                        "id": "hotspot-mapa"
                     },
                 },
                 {
@@ -46,151 +53,86 @@ let pannellumViewer = pannellum.viewer('panorama', {
                 },
             ]
         },
-        "segunda": {
-            "title": "Jardin",
-            "hfov": 110,
-            "yaw": 260,
-            "type": "equirectangular",
-            "panorama": "./titles/photo_2021-03-02_23-20-00.jpg",
-            "hotSpots": [
-                {
-                    "pitch": -0.6,
-                    "yaw": 310,
-                    "type": "scene",
-                    "text": "Pasillo",
-                    "sceneId": "tercera",
-                    "targetYaw": -23,
-                    "targetPitch": 2
-                },
-                {
-                    "pitch": -0.6,
-                    "yaw": 180,
-                    "type": "scene",
-                    "text": "Inicio",
-                    "sceneId": "primera",
-                    "targetYaw": -23,
-                    "targetPitch": 2
-                },
-                {
-                    "pitch": 7, //arriba - abajo
-                    "yaw": 250, // izq - der
-                    "cssClass": "custom-hotspot-icon",
-                    "createTooltipFunc": hotspot,
-                    "createTooltipArgs": {
-                        "title": "Galeria de Arte",
-                        "id": "hotspot-galeria-icon"
-                    },
-                },
-                {
-                    "pitch": 10, //arriba - abajo
-                    "yaw": 32, // izq - der
-                    "cssClass": "custom-hotspot-icon",
-                    "createTooltipFunc": hotspot,
-                    "createTooltipArgs": {
-                        "title": "Agujero negro al inframundo o al mas alla",
-                        "id": "hotspot-blackhole-icon"
-                    },
-                },
-            ]
-        },
-        "tercera": {
-            "title": "Pasillo",
-            "hfov": 110,
-            "yaw": 5,
-            "type": "equirectangular",
-            "panorama": "./titles/photo_2021-03-02_23-20-06.jpg",
-            "hotSpots": [
-                {
-                    "pitch": -5,
-                    "yaw": 3,
-                    "type": "scene",
-                    "text": "Final",
-                    "sceneId": "cuarta",
-                    "targetYaw": -23,
-                    "targetPitch": 2
-                },
-                {
-                    "pitch": -5,
-                    "yaw": 175,
-                    "type": "scene",
-                    "text": "Jardin",
-                    "sceneId": "segunda",
-                    "targetYaw": -23,
-                    "targetPitch": 2
-                }
-            ]
-        },
-        "cuarta": {
-            "title": "Final",
+        "pasillo-2": {
+            "title": "Pasillo 2",
             "hfov": 110,
             "yaw": 150,
             "type": "equirectangular",
-            "panorama": "./titles/photo_2021-03-02_23-20-08.jpg",
-            "hotSpots": [
-                {
-                    "pitch": 1,
-                    "yaw": 175,
-                    "type": "scene",
-                    "text": "Pasillo",
-                    "sceneId": "tercera",
-                    "targetYaw": -23,
-                    "targetPitch": 2
-                },
-                {
-                    "pitch": -3, //arriba - abajo
-                    "yaw": 350, // izq - der
-                    "cssClass": "custom-hotspot-img custom-img",
-                    "createTooltipFunc": hotspot,
-                    "createTooltipArgs": {
-                        "title": "La Gioconda",
-                        "id": "hotspot-monalisa"
-                    },
-                },
-                {
-                    "pitch": -25, //arriba - abajo
-                    "yaw": 175, // izq - der
-                    "cssClass": "custom-hotspot-icon",
-                    "createTooltipFunc": hotspot,
-                    "createTooltipArgs": {
-                        "title": "Zapatos de David pero sin David",
-                        "id": "hotspot-zapato-icon"
-                    },
-                },
-            ]
-        },
-        "quinta": {
-            "title": "Pasillo 1",
-            "hfov": 110,
-            "yaw": 150,
-            "type": "equirectangular",
-            // "panorama": "./titles/hacienda/pasillo-1/pasillo-1.jpg",
-            // "panorama": "./titles/hacienda/pasillo-1/pasillo-1_4x.jpg",
-            "panorama": "./titles/hacienda/pasillo-1/pasillo-1_photos_v2_x4.jpg",
-            // "panorama": "./titles/hacienda/pasillo-1/pasillo-1-8x.jpg",
-            // "panorama": "./titles/hacienda/pasillo-1/pasillo-1-4x-qudratic.jpg",
+            "panorama": "./titles/hacienda/pasillo-2.jpg",
 
             "hotSpots": [
                 {
                     "pitch": 1,
-                    "yaw": 175,
+                    "yaw": 205,
                     "type": "scene",
-                    "text": "Pasillo 1",
-                    "sceneId": "sexta",
+                    "text": "Pasillo 3",
+                    "sceneId": "pasillo-3",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+            ]
+        },
+        "pasillo-3": {
+            "title": "Pasillo 3",
+            "hfov": 110,
+            "yaw": 150,
+            "type": "equirectangular",
+            "panorama": "./titles/hacienda/pasillo-3.jpg",
+
+            "hotSpots": [
+                {
+                    "pitch": 1,
+                    "yaw": 90,
+                    "type": "scene",
+                    "text": "Pasillo 4",
+                    "sceneId": "pasillo-4",
                     "targetYaw": -23,
                     "targetPitch": 2
                 },
                 {
-                    "pitch": -3, //arriba - abajo
-                    "yaw": 150, // izq - der
-                    "cssClass": "custom-hotspot-img custom-img",
+                    "pitch": 0, //arriba - abajo
+                    "yaw": 0, // izq - der
+                    "cssClass": "custom-hotspot-icon",
                     "createTooltipFunc": hotspot,
                     "createTooltipArgs": {
-                        "title": "Mapa",
-                        "id": "hotspot-mapa"
+                        "title": "Sala de Secado 2",
+                        "id": "hotspot-galeria-icon"
+                    },
+                    "type": "scene",
+                    "sceneId": "sala-2",
+                },
+            ]
+        },
+        "sala-2": {
+            "title": "Pasillo 2",
+            "hfov": 110,
+            "yaw": 150,
+            "type": "equirectangular",
+            "panorama": "./titles/hacienda/sala-2/sala-2_digital_art_x4.jpg",
+            // "panorama": "./titles/hacienda/sala-2/sala-2.jpg",
+
+            "hotSpots": [
+                {
+                    "pitch": -8,
+                    "yaw": 200,
+                    "type": "scene",
+                    "text": "Pasillo 3",
+                    "sceneId": "pasillo-3",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+                {
+                    "pitch": -4, //arriba - abajo
+                    "yaw": 360, // izq - der
+                    "cssClass": "custom-hotspot-icon",
+                    "createTooltipFunc": hotspot,
+                    "createTooltipArgs": {
+                        "title": "Salon de Concierto",
+                        "id": "hotspot-obra-1-sala-2-img"
                     },
                 },
             ]
-        }
+        },
     }
 });
 

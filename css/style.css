@@ -14,14 +14,21 @@
 #hotspot-monalisa {
     width: 300px;
     height: 450px;
-    background-image: url('images/1200px-Mona_Lisa.jpg');
+    background-image: url('../images/1200px-Mona_Lisa.jpg');
+    background-size: contain;
+}
+
+#hotspot-obra-1-sala-2-img {
+    width: 630px;
+    height: 371px;
+    background-image: url('../titles/hacienda/sala-2/obras/obra-1.jpg');
     background-size: contain;
 }
 
 #hotspot-mapa{
     width: 180px;
     height: 230px;
-    background-image: url('images/mapa-pasillo-1.jpg');
+    background-image: url('../images/mapa-pasillo-1.jpg');
     background-size: contain;
 }
 
@@ -31,7 +38,7 @@
 }
 
 .pnlm-hotspot {
-    background-image: url('images/flecha-adelante.svg') !important;
+    background-image: url('../images/flecha-adelante.svg') !important;
 
 
 }
@@ -39,7 +46,7 @@
 #hotspot-zapato-icon {
     width: 100px;
     height: 100px;
-    background-image: url('images/zapato.svg');
+    background-image: url('../images/zapato.svg');
     background-size: contain;
 }
 
@@ -102,7 +109,7 @@
 #hotspot-galeria-icon {
     width: 50px;
     height: 50px;
-    background-image: url('images/galeria-arte.svg');
+    background-image: url('../images/galeria-arte.svg');
     background-size: contain;
 }
 
