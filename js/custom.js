@@ -5,7 +5,7 @@ let pannellumViewer = pannellum.viewer('panorama', {
     "multiResMinHfov":true,
     // "showControls": true,
     "default": {
-        "firstScene": "sala-2",
+        "firstScene": "pasillo-7",
         "sceneFadeDuration": 1000
     },
 
@@ -92,7 +92,7 @@ let pannellumViewer = pannellum.viewer('panorama', {
                 {
                     "pitch": 0, //arriba - abajo
                     "yaw": 0, // izq - der
-                    "cssClass": "custom-hotspot-icon",
+                    "cssClass": "custom-hotspot-icon latido",
                     "createTooltipFunc": hotspot,
                     "createTooltipArgs": {
                         "title": "Sala de Secado 2",
@@ -153,6 +153,178 @@ let pannellumViewer = pannellum.viewer('panorama', {
                 },
             ]
         },
+        "pasillo-4": {
+            "title": "Pasillo 4",
+            "hfov": 110,
+            "yaw": 150,
+            "type": "equirectangular",
+            "panorama": "./titles/hacienda/pasillo-4.png",
+
+            "hotSpots": [
+                {
+                    "pitch": 1,
+                    "yaw": 90,
+                    "type": "scene",
+                    "text": "Pasillo 5",
+                    "sceneId": "pasillo-5",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+                {
+                    "pitch": 0, //arriba - abajo
+                    "yaw": -4, // izq - der
+                    "cssClass": "custom-hotspot-icon latido",
+                    "createTooltipFunc": hotspot,
+                    "createTooltipArgs": {
+                        "title": "Sala de Secado 3",
+                        "id": "hotspot-galeria-icon"
+                    },
+                    "type": "scene",
+                    "sceneId": "sala-3",
+                },
+            ]
+        },
+        "pasillo-5": {
+            "title": "Pasillo 5",
+            "hfov": 110,
+            "yaw": 150,
+            "type": "equirectangular",
+            "panorama": "./titles/hacienda/pasillo-5.jpg",
+
+            "hotSpots": [
+                {
+                    "pitch": 1,
+                    "yaw": 90,
+                    "type": "scene",
+                    "text": "Pasillo 6",
+                    "sceneId": "pasillo-6",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+                {
+                    "pitch": 5, //arriba - abajo
+                    "yaw": 0, // izq - der
+                    "cssClass": "custom-hotspot-icon latido",
+                    "createTooltipFunc": hotspot,
+                    "createTooltipArgs": {
+                        "title": "Tienda de Chocolate",
+                        "id": "hotspot-chocolate-icon"
+                    },
+                    "type": "scene",
+                    "sceneId": "tienda-chocolate",
+                },
+                {
+                    "pitch": -7, //arriba - abajo
+                    "yaw": 195, // izq - der
+                    "cssClass": "custom-hotspot-img custom-img",
+                    "createTooltipFunc": hotspot,
+                    "createTooltipArgs": {
+                        "title": "Mapa",
+                        "id": "hotspot-mapa"
+                    },
+                },
+            ]
+        },
+        "tienda-chocolate": {
+            "title": "Tienda de Chocolate",
+            "hfov": 110,
+            "yaw": 150,
+            "type": "equirectangular",
+            "panorama": "./titles/hacienda/cacao/cacao_photos_v2_faces_x4_toned.jpg",
+
+            "hotSpots": [
+                {
+                    "pitch": -3,
+                    "yaw": -15,
+                    "type": "scene",
+                    "text": "Pasillo 5",
+                    "sceneId": "pasillo-5",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+            ]
+        },
+        "pasillo-6": {
+            "title": "Pasillo 6",
+            "hfov": 110,
+            "yaw": 150,
+            "type": "equirectangular",
+            "panorama": "./titles/hacienda/pasillo-6.jpg",
+
+            "hotSpots": [
+                {
+                    "pitch": 1,
+                    "yaw": 90,
+                    "type": "scene",
+                    "text": "Pasillo 7",
+                    "sceneId": "pasillo-7",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+                {
+                    "pitch": 0, //arriba - abajo
+                    "yaw":110, // izq - der
+                    "cssClass": "custom-hotspot-icon latido",
+                    "createTooltipFunc": hotspot,
+                    "createTooltipArgs": {
+                        "title": "Sala de Curso de Fotografia",
+                        "id": "hotspot-camara-icon"
+                    },
+                    "type": "scene",
+                    "sceneId": "sala-fotografia",
+                },
+            ]
+        },
+        "sala-fotografia": {
+            "title": "Sala de Curso Fotografia",
+            "hfov": 110,
+            "yaw": 150,
+            "type": "equirectangular",
+            "panorama": "./titles/hacienda/fotoclase.jpg",
+
+            "hotSpots": [
+                {
+                    "pitch": -3,
+                    "yaw": 290,
+                    "type": "scene",
+                    "text": "Pasillo 6",
+                    "sceneId": "pasillo-6",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+            ]
+        },
+        "pasillo-7": {
+            "title": "Pasillo 7",
+            "hfov": 110,
+            "yaw": 150,
+            "type": "equirectangular",
+            "panorama": "./titles/hacienda/pasillo-final.jpg",
+
+            "hotSpots": [
+                {
+                    "pitch": 1,
+                    "yaw": 90,
+                    "type": "scene",
+                    "text": "Pasillo 5",
+                    "sceneId": "pasillo-5",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+                {
+                    "pitch": 0, //arriba - abajo
+                    "yaw":210, // izq - der
+                    "cssClass": "custom-hotspot-icon latido",
+                    "createTooltipFunc": hotspot,
+                    "createTooltipArgs": {
+                        "title": "Sala de Curso de Fotografia",
+                        "id": "hotspot-camara-icon"
+                    },
+                    "type": "scene",
+                    "sceneId": "sala-fotografia",
+                },
+            ]
+        },
     }
 });
 
@@ -196,8 +368,10 @@ let loadHotspot = () => {
         $("#hotspot-concierto-icon").click(function () {
             $('#myModal').modal('toggle');
         });
-        $('#hotspot-concierto-icon').append('<img src="images/micro.svg" alt="Concierto" width="20" height="20">')
-        $('#hotspot-blackhole-icon').append('<img src="images/blackhole.svg" alt="Blackhole">')
+
+        $('#hotspot-chocolate-icon').append('<img src="images/chocolate.svg" alt="Chocolate" width="50" height="50">')
+        $('#hotspot-galeria-icon').append('<img src="images/galeria-arte.svg" alt="Galeria" width="50" height="50">')        
+        $('#hotspot-camara-icon').append('<img src="images/camara.svg" alt="Camara"  width="50" height="50">')
 
 
         $('#a').append('<i class="fas fa-music"></i>')

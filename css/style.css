@@ -120,14 +120,15 @@
 #hotspot-concierto-icon img{
     width: 50px;
     height: 50px;
+}
+
+.latido img{
     animation: heartbeat 1s infinite;
 }
 
 #hotspot-galeria-icon {
     width: 50px;
     height: 50px;
-    background-image: url('../images/galeria-arte.svg');
-    background-size: contain;
 }
 
 div.custom-tooltip span {
