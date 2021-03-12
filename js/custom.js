@@ -1,11 +1,15 @@
 // Create viewer
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+var scene = urlParams.get('scene')
+
 let pannellumViewer = pannellum.viewer('panorama', {
     "showFullscreenCtrl": true,
     "autoLoad": true,
     "multiResMinHfov":true,
     // "showControls": true,
     "default": {
-        "firstScene": "pasillo-3",
+        "firstScene": scene,
         "sceneFadeDuration": 1000
     },
 
