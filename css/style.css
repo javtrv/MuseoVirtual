@@ -19,15 +19,16 @@
 }
 
 #hotspot-obra-1-sala-2-img {
-    width: 630px;
-    height: 371px;
+    width: 50vw;
+    height: 30vh;
     background-image: url('../titles/hacienda/sala-2/obras/obra-1.jpg');
     background-size: contain;
+    background-repeat: no-repeat;
 }
 
 #hotspot-obra-2-sala-2-img {
-    width: 638px;
-    height: 424px;
+    width: 50vw;
+    height: 40vh;
     background-image: url('../titles/hacienda/sala-2/obras/obra-2.jpg');
     background-size: contain;
     background-repeat: no-repeat;
