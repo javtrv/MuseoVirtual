@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/alvddjri/public_html/museum/
+    - /bin/cp index.html $DEPLOYPATH
