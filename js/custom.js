@@ -5,7 +5,7 @@ let pannellumViewer = pannellum.viewer('panorama', {
     "multiResMinHfov":true,
     // "showControls": true,
     "default": {
-        "firstScene": "pasillo-3",
+        "firstScene": "sala-2",
         "sceneFadeDuration": 1000
     },
 
@@ -147,7 +147,7 @@ let pannellumViewer = pannellum.viewer('panorama', {
                 },
                 {
                     "pitch": -4, //arriba - abajo
-                    "yaw": 360, // izq - der
+                    "yaw": 20, // izq - der
                     "cssClass": "custom-hotspot-icon",
                     "createTooltipFunc": hotspot,
                     "createTooltipArgs": {
@@ -162,7 +162,7 @@ let pannellumViewer = pannellum.viewer('panorama', {
                 },
                 {
                     "pitch": -4, //arriba - abajo
-                    "yaw": 110, // izq - der
+                    "yaw": 120, // izq - der
                     "cssClass": "custom-hotspot-icon",
                     "createTooltipFunc": hotspot,
                     "createTooltipArgs": {
