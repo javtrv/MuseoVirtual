@@ -160,3 +160,7 @@ div.custom-tooltip:hover span:after {
     left: -10px;
     margin: 0 50%;
 }
+
+.img-modal{
+    width: 100%;
+}

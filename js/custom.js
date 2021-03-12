@@ -5,7 +5,7 @@ let pannellumViewer = pannellum.viewer('panorama', {
     "multiResMinHfov":true,
     // "showControls": true,
     "default": {
-        "firstScene": "pasillo-7",
+        "firstScene": "pasillo-3",
         "sceneFadeDuration": 1000
     },
 
@@ -17,9 +17,9 @@ let pannellumViewer = pannellum.viewer('panorama', {
             "type": "equirectangular",
             // "panorama": "./titles/hacienda/pasillo-1/pasillo-1.jpg",
             // "panorama": "./titles/hacienda/pasillo-1/pasillo-1_4x.jpg",
-            "panorama": "./titles/hacienda/pasillo-1/pasillo-1_photos_v2_x4.jpg",
+            // "panorama": "./titles/hacienda/pasillo-1/pasillo-1_photos_v2_x4.jpg",
             // "panorama": "./titles/hacienda/pasillo-1/pasillo-1-8x.jpg",
-            // "panorama": "./titles/hacienda/pasillo-1/pasillo-1-4x-qudratic.jpg",
+            "panorama": "./titles/hacienda/pasillo-1/pasillo-1-4x-qudratic.jpg",
 
             "hotSpots": [
                 {
@@ -38,7 +38,12 @@ let pannellumViewer = pannellum.viewer('panorama', {
                     "createTooltipFunc": hotspot,
                     "createTooltipArgs": {
                         "title": "Mapa",
-                        "id": "hotspot-mapa"
+                        "id": "hotspot-mapa",
+                        "modal":{
+                            "title": "Mapa cuchi",
+                            "description": "Un Amplio espacio donde frecuentemente hay eventos de Música de Cámara"
+                            // "extra": ""
+                        }
                     },
                 },
                 {
@@ -96,7 +101,8 @@ let pannellumViewer = pannellum.viewer('panorama', {
                     "createTooltipFunc": hotspot,
                     "createTooltipArgs": {
                         "title": "Sala de Secado 2",
-                        "id": "hotspot-galeria-icon"
+                        "id": "hotspot-galeria-icon",
+                        "customIcon": "galeria-arte.svg"
                     },
                     "type": "scene",
                     "sceneId": "sala-2",
@@ -128,7 +134,12 @@ let pannellumViewer = pannellum.viewer('panorama', {
                     "createTooltipFunc": hotspot,
                     "createTooltipArgs": {
                         "title": "NOMBRE OBRA 1",
-                        "id": "hotspot-obra-1-sala-2-img"
+                        "id": "hotspot-obra-1-sala-2-img",
+                        "modal":{
+                            "title": "Obra 1",
+                            "description": "Un Amplio espacio donde frecuentemente hay eventos de Música de Cámara",
+                            "extra": "<img src=\"./titles/hacienda/sala-2/obras/obra-1.jpg\" alt=\"Obra 1\" class=\"img-modal\" >"
+                        }
                     },
                 },
                 {
@@ -342,6 +353,17 @@ function hotspot(hotSpotDiv, args) {
     // Custom ID
     hotSpotDiv.id = args.id;
 
+    // Event modal
+    if (args.modal){
+        $(`#${args.id}`).click( function() {
+            openModal(args.modal)
+        })
+
+    }
+
+    console.log(`Cargando Hotspot ${args.title}` );
+
+
     // Create span element to tooltip
     var span = document.createElement('span');
     span.innerHTML = args.title;
@@ -349,6 +371,12 @@ function hotspot(hotSpotDiv, args) {
     span.style.width = span.scrollWidth - 20 + 'px';
     span.style.marginLeft = -(span.scrollWidth - hotSpotDiv.offsetWidth) / 2 + 'px';
     span.style.marginTop = -span.scrollHeight - 12 + 'px';
+
+    // Custom icon
+    if(args.customIcon){
+        $(`#${args.id}`).append(`<img src="images/${args.customIcon}" alt="Galeria" width="50" height="50">`)
+    }
+
 }
 
 
@@ -358,19 +386,20 @@ function hotspot(hotSpotDiv, args) {
 
 // Funcion para cargar los modales
 let loadHotspot = () => {
-    console.log('cargando')
     // Verifica que ya cargo el viewer
     if (pannellumViewer.isLoaded()) {
 
-        $("#a").click(function () {
-            $('#myModal').modal('toggle');
-        });
-        $("#hotspot-concierto-icon").click(function () {
-            $('#myModal').modal('toggle');
-        });
+        // $("#a").click(function () {
+        //     $('#myModal').modal('toggle');
+        // });
+        // $("#hotspot-concierto-icon").click(function () {
+        //     $('#myModal').modal('toggle');
+        // });
+
+
 
         $('#hotspot-chocolate-icon').append('<img src="images/chocolate.svg" alt="Chocolate" width="50" height="50">')
-        $('#hotspot-galeria-icon').append('<img src="images/galeria-arte.svg" alt="Galeria" width="50" height="50">')        
+        // $('#hotspot-galeria-icon').append('<img src="images/galeria-arte.svg" alt="Galeria" width="50" height="50">')
         $('#hotspot-camara-icon').append('<img src="images/camara.svg" alt="Camara"  width="50" height="50">')
 
 
@@ -385,8 +414,28 @@ let loadHotspot = () => {
     }
 }
 
-// Esperar 0.5seg para ejecutar los eventos
-// setTimeout(loadHotspot, 500);
 
+/*
+ * openModal
+ * 
+ * Prepara la info que se va a mostrar en el Modal
+ */
+let openModal = (data) => {
+    // Search modal
+    let modal = $('#modal-info')
 
-// new Glide('.glide').mount()
+    // Search info modal
+    let title = modal.find('#modal-title')
+    let description = modal.find('#modal-description')
+    let extra = modal.find('#modal-extra')
+
+    // Set info
+    title.text(data.title)
+    description.text(data.description)
+    // Set html tag
+    extra.html(data.extra)
+
+    // Open modal
+    modal.modal('show');
+}
+

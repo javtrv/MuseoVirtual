@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Custom hot spots</title>
+	<title>Haciendo La Trinidad</title>
 
 	<!-- Pannellum CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
@@ -29,24 +29,23 @@
 
 	<div id="panorama"></div>
 
-
 	<!-- MODALES -->
 
-	<div class="modal animate__fadeIn animate__animated" id="myModal" tabindex="-1">
+	<div class="modal animate__fadeIn animate__animated" id="modal-info" tabindex="-1">
 		<div class="modal-dialog modal-dialog-centered ">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">Salon de Concierto</h5>
+					<!-- MODAL TITLE -->
+					<h5 id="modal-title" class="modal-title"></h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<div class="card card-ejemplo" id="estatua-1">
 						<div class="card-body">
-							<p>Un Amplio espacio donde frecuentemente hay eventos de Música de Cámara</p>
-							<iframe loading="lazy" width="100%" height="350"
-								src="https://www.youtube.com/embed/ZPRS5Wv7ynQ" frameborder="0"
-								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-								allowfullscreen></iframe>
+							<!-- MODAL DESCRIPTION -->
+							<p id="modal-description"></p>
+							<!-- MODAL EXTRA -->
+							<div id="modal-extra"></div>
 						</div>
 					</div>
 
@@ -57,28 +56,7 @@
 			</div>
 		</div>
 	</div>
-
-	<div class="modal animate__fadeIn animate__animated" id="modal-monalisa" tabindex="-1">
-		<div class="modal-dialog modal-dialog-centered ">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title">La Gioconda</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<p>El Retrato de Lisa Gherardini, esposa de Francesco del Giocondo, ​
-						más conocido como La Gioconda o La Mona Lisa,
-						es una obra pictórica del polímata renacentista italiano Leonardo da Vinci. Fue adquirida por el
-						rey Francisco I de Francia a comienzos del siglo XVI y desde entonces es propiedad del Estado
-						francés.</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	>
+	
 
 	<!-- Glidejs -->
 	<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
@@ -95,9 +73,6 @@
 		crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="js/custom.js"></script>
-
-
-
 
 </body>
 
