@@ -155,11 +155,11 @@ let pannellumViewer = pannellum.viewer('panorama', {
                     "cssClass": "custom-hotspot-icon",
                     "createTooltipFunc": hotspot,
                     "createTooltipArgs": {
-                        "title": "NOMBRE OBRA 1",
+                        "title": " Caraotas- Jorge Pedro Nuñez",
                         "id": "hotspot-obra-1-sala-2-img",
                         "modal":{
-                            "title": "Obra 1",
-                            "description": "Un Amplio espacio donde frecuentemente hay eventos de Música de Cámara",
+                            "title": "Caraotas- Jorge Pedro Nuñez",
+                            "description": "La prática artística de Jorge Pedro Nuñez está ligada a su experiencia como historiador del arte, debido a lo que sus obras aluden a múltiples referencias, tanto artísticas como contextuales",
                             "extra": "<img src=\"./titles/hacienda/sala-2/obras/obra-1.jpg\" alt=\"Obra 1\" class=\"img-modal\" >"
                         }
                     },
