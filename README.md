@@ -8,6 +8,8 @@ Para ver la documentacion de como se arman las esceneas ir a la documentacion of
 
 * **createTooltipFunc** (function):
     Recibe una funcion para generar el hotspot
+    
+    Funciones disponibles:
     * hotspot
 
 * **createTooltipArgs** (object):
