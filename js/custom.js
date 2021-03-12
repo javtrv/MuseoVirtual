@@ -75,6 +75,15 @@ let pannellumViewer = pannellum.viewer('panorama', {
                     "targetYaw": -23,
                     "targetPitch": 2
                 },
+                {
+                    "pitch": 1,
+                    "yaw": 40,
+                    "type": "scene",
+                    "text": "Pasillo 1",
+                    "sceneId": "pasillo-1",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
             ]
         },
         "pasillo-3": {
@@ -91,6 +100,15 @@ let pannellumViewer = pannellum.viewer('panorama', {
                     "type": "scene",
                     "text": "Pasillo 4",
                     "sceneId": "pasillo-4",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+                {
+                    "pitch": 1,
+                    "yaw": -90,
+                    "type": "scene",
+                    "text": "Pasillo 2",
+                    "sceneId": "pasillo-2",
                     "targetYaw": -23,
                     "targetPitch": 2
                 },
@@ -182,6 +200,15 @@ let pannellumViewer = pannellum.viewer('panorama', {
                     "targetPitch": 2
                 },
                 {
+                    "pitch": 1,
+                    "yaw": -90,
+                    "type": "scene",
+                    "text": "Pasillo 3",
+                    "sceneId": "pasillo-3",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+                {
                     "pitch": 0, //arriba - abajo
                     "yaw": -4, // izq - der
                     "cssClass": "custom-hotspot-icon latido",
@@ -209,6 +236,15 @@ let pannellumViewer = pannellum.viewer('panorama', {
                     "type": "scene",
                     "text": "Pasillo 6",
                     "sceneId": "pasillo-6",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+                {
+                    "pitch": 1,
+                    "yaw": -90,
+                    "type": "scene",
+                    "text": "Pasillo 4",
+                    "sceneId": "pasillo-4",
                     "targetYaw": -23,
                     "targetPitch": 2
                 },
@@ -273,6 +309,15 @@ let pannellumViewer = pannellum.viewer('panorama', {
                     "targetPitch": 2
                 },
                 {
+                    "pitch": 1,
+                    "yaw": -90,
+                    "type": "scene",
+                    "text": "Pasillo 5",
+                    "sceneId": "pasillo-5",
+                    "targetYaw": -23,
+                    "targetPitch": 2
+                },
+                {
                     "pitch": 0, //arriba - abajo
                     "yaw":110, // izq - der
                     "cssClass": "custom-hotspot-icon latido",
@@ -315,10 +360,10 @@ let pannellumViewer = pannellum.viewer('panorama', {
             "hotSpots": [
                 {
                     "pitch": 1,
-                    "yaw": 90,
+                    "yaw": -90,
                     "type": "scene",
-                    "text": "Pasillo 5",
-                    "sceneId": "pasillo-5",
+                    "text": "Pasillo 6",
+                    "sceneId": "pasillo-6",
                     "targetYaw": -23,
                     "targetPitch": 2
                 },
@@ -403,11 +448,6 @@ let loadHotspot = () => {
         $('#hotspot-camara-icon').append('<img src="images/camara.svg" alt="Camara"  width="50" height="50">')
 
 
-        $('#a').append('<i class="fas fa-music"></i>')
-
-        $("#hotspot-monalisa").click(function () {
-            $('#modal-monalisa').modal('toggle');
-        });
     }
     else {
         setTimeout(loadHotspot, 500);
