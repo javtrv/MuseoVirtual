@@ -1,4 +1,28 @@
-# Documentacion Muser Virtual
+
+# Documentacion Museo Virtual
+
+## Introduccion
+
+El proyecto de Museo Virtual se establecio como idea del miniproyecto de desarrollo de software de la profesora Yudith Cardinale de la Universidad Símon 
+Bolívar, en el trimestre Enero-Marzo 2021.
+
+La idea principal es crear un tour virtual de 3 museos de la ciudad Arequipa, Peru. 
+Para la presentacion beta de este miniproyecto se usaron datos e imagenes de la Hacienda La Trinidad, ubicada en la ciudad de Miranda, Venezuela.
+
+## Integrantes
+
+Alvaro Avila
+David Rodriguez 
+Javier Medina
+Maria Fernanda Machado
+
+## Herramientas
+
+Se realizo un proceso investigativo para definir cual iba a ser la herramienta que nos iba a permitir construir el tour virtual.
+Llegamos a 2 opciones viables, Marzipano y Panellum. Al final dada su facilidad de modificación y de poder exportar el proyecto. Nos quedamos con la herramienta de uso publico Panellum.
+
+https://pannellum.org/
+
 
 ## Escenas
 
