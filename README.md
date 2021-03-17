@@ -43,8 +43,13 @@ Para ver la documentacion de como se arman las esceneas ir a la documentacion of
     * **modal** (object): Permite mostrar un Modal con informacion al darle click al hotspot
         * **title** (string): Titulo del modal
         * **description** (string): Texto o descripcion del modal
-        * **image** (string): Ruta de la imagen, **NO SE HA IMPLEMENTADO**
+        * **image** (object): Imagen
+            * **src**: Ruta de la imagen
+            * **alt**: Alternate text 
+            * **class**: extra class para la imagen
         * **extra** (string): Codigo HTML para insertar al final del modal
+
+**NOTA:** Todas las imagenes deben estar en la carpeta "images", de lo contrario no reconocera la imagen.
 
 ## Ejemplo
 
@@ -61,7 +66,9 @@ Para ver la documentacion de como se arman las esceneas ir a la documentacion of
             "modal":{ // Activar modal cuando se hace click
                 "title": "Obra 1", // Titulo modal
                 "description": "Un Amplio espacio donde frecuentemente hay eventos de Música de Cámara", // Texto
-                "extra": "<img src=\"./titles/hacienda/sala-2/obras/obra-1.jpg\" alt=\"Obra 1\" class=\"img-modal\" >" // Insertar imagen en la seccion de extra
+                "imagen": { //Imagen 
+                    "src": "obra.jpg"
+                }
             }
         }
     }

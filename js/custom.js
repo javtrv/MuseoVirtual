@@ -1,7 +1,9 @@
 // Create viewer
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-var scene = urlParams.get('scene')
+var scene = urlParams.get('scene') || 'pasillo-1'
+
+console.log("SCENE: ", scene);
 
 let pannellumViewer = pannellum.viewer('panorama', {
     "showFullscreenCtrl": true,
@@ -45,8 +47,10 @@ let pannellumViewer = pannellum.viewer('panorama', {
                         "id": "hotspot-mapa",
                         "modal":{
                             "title": "Mapa cuchi",
-                            "description": "Un Amplio espacio donde frecuentemente hay eventos de Música de Cámara"
-                            // "extra": ""
+                            "description": "Un Amplio espacio donde frecuentemente hay eventos de Música de Cámara",
+                            "imagen": {
+                                "src": "mapa-pasillo-1.jpg"
+                            }
                         }
                     },
                 },
@@ -124,7 +128,10 @@ let pannellumViewer = pannellum.viewer('panorama', {
                     "createTooltipArgs": {
                         "title": "Sala de Secado 2",
                         "id": "hotspot-galeria-icon",
-                        "customIcon": "galeria-arte.svg"
+                        "customIcon":{
+                            "path": "galeria-arte.svg",
+                            "alt": "Galeria"
+                        }
                     },
                     "type": "scene",
                     "sceneId": "sala-2",
@@ -160,7 +167,10 @@ let pannellumViewer = pannellum.viewer('panorama', {
                         "modal":{
                             "title": "Caraotas- Jorge Pedro Nuñez",
                             "description": "La prática artística de Jorge Pedro Nuñez está ligada a su experiencia como historiador del arte, debido a lo que sus obras aluden a múltiples referencias, tanto artísticas como contextuales",
-                            "extra": "<img src=\"./titles/hacienda/sala-2/obras/obra-1.jpg\" alt=\"Obra 1\" class=\"img-modal\" >"
+                            "imagen":{
+                                "src": "./titles/hacienda/sala-2/obras/obra-1.jpg",
+                                "alt": "Obra 1"
+                            }
                         }
                     },
                 },
@@ -219,7 +229,11 @@ let pannellumViewer = pannellum.viewer('panorama', {
                     "createTooltipFunc": hotspot,
                     "createTooltipArgs": {
                         "title": "Sala de Secado 3",
-                        "id": "hotspot-galeria-icon"
+                        "id": "hotspot-galeria-icon",
+                        "customIcon":{
+                            "path": "galeria-arte.svg",
+                            "alt": "Galeria"
+                        }
                     },
                     "type": "scene",
                     "sceneId": "sala-3",
@@ -259,7 +273,11 @@ let pannellumViewer = pannellum.viewer('panorama', {
                     "createTooltipFunc": hotspot,
                     "createTooltipArgs": {
                         "title": "Tienda de Chocolate",
-                        "id": "hotspot-chocolate-icon"
+                        "id": "hotspot-chocolate-icon",
+                        "customIcon":{
+                            "path": "chocolate.svg",
+                            "alt": "Chocolate"
+                        }
                     },
                     "type": "scene",
                     "sceneId": "tienda-chocolate",
@@ -328,7 +346,11 @@ let pannellumViewer = pannellum.viewer('panorama', {
                     "createTooltipFunc": hotspot,
                     "createTooltipArgs": {
                         "title": "Sala de Curso de Fotografia",
-                        "id": "hotspot-camara-icon"
+                        "id": "hotspot-camara-icon",
+                        "customIcon":{
+                            "path": "camara.svg",
+                            "alt": "Camara"
+                        }
                     },
                     "type": "scene",
                     "sceneId": "sala-fotografia",
@@ -378,7 +400,11 @@ let pannellumViewer = pannellum.viewer('panorama', {
                     "createTooltipFunc": hotspot,
                     "createTooltipArgs": {
                         "title": "Sala de Curso de Fotografia",
-                        "id": "hotspot-camara-icon"
+                        "id": "hotspot-camara-icon",
+                        "customIcon":{
+                            "path": "camara.svg",
+                            "alt": "Camara"
+                        }
                     },
                     "type": "scene",
                     "sceneId": "sala-fotografia",
@@ -388,30 +414,48 @@ let pannellumViewer = pannellum.viewer('panorama', {
     }
 });
 
-pannellumViewer.on('load',
-    function () {
-        setTimeout(loadHotspot, 500);
+
+let mouseToogle = false
+
+// WHEN LOAD PANNELLUM
+pannellumViewer.on('mousedown',
+    function (e) {
+        console.log(e);
+        if( mouseToogle ){
+            let a = pannellumViewer.mouseEventToCoords(e);
+            console.log(a);
+        }
     }
 );
 
+document.addEventListener('keydown', function(e){
+    if (e.key === 'e'){
+        mouseToogle = !mouseToogle
+        console.log("MouseToogle: ", mouseToogle);
+    }
+})
 
-// Hot spot creation function
+
+/*
+ * hotspot
+ * 
+ * Funcion de creacion de hotspot custom
+ */
 function hotspot(hotSpotDiv, args) {
+    
+    console.log(`Cargando Hotspot ${args.title}` );
+    
     // Custom class
     hotSpotDiv.classList.add('custom-tooltip');
     // Custom ID
     hotSpotDiv.id = args.id;
 
-    // Event modal
+    // Se crea el evento para abrir el modal 
     if (args.modal){
         $(`#${args.id}`).click( function() {
             openModal(args.modal)
         })
-
     }
-
-    console.log(`Cargando Hotspot ${args.title}` );
-
 
     // Create span element to tooltip
     var span = document.createElement('span');
@@ -422,40 +466,15 @@ function hotspot(hotSpotDiv, args) {
     span.style.marginTop = -span.scrollHeight - 12 + 'px';
 
     // Custom icon
-    if(args.customIcon){
-        $(`#${args.id}`).append(`<img src="images/${args.customIcon}" alt="Galeria" width="50" height="50">`)
+    if(args.customIcon && args.customIcon.path){
+        let width = args.customIcon.width || "50";
+        let height = args.customIcon.height || "50";
+
+        $(`#${args.id}`).append(
+            `<img src="images/${args.customIcon.path}" alt="${args.customIcon.alt}" width="${width}" height="${height}">`
+        );
     }
 
-}
-
-
-// ZONA DE EXPERIMENTACION
-
-// CARGAR LOS MODALES
-
-// Funcion para cargar los modales
-let loadHotspot = () => {
-    // Verifica que ya cargo el viewer
-    if (pannellumViewer.isLoaded()) {
-
-        // $("#a").click(function () {
-        //     $('#myModal').modal('toggle');
-        // });
-        // $("#hotspot-concierto-icon").click(function () {
-        //     $('#myModal').modal('toggle');
-        // });
-
-
-
-        $('#hotspot-chocolate-icon').append('<img src="images/chocolate.svg" alt="Chocolate" width="50" height="50">')
-        // $('#hotspot-galeria-icon').append('<img src="images/galeria-arte.svg" alt="Galeria" width="50" height="50">')
-        $('#hotspot-camara-icon').append('<img src="images/camara.svg" alt="Camara"  width="50" height="50">')
-
-
-    }
-    else {
-        setTimeout(loadHotspot, 500);
-    }
 }
 
 
@@ -466,18 +485,31 @@ let loadHotspot = () => {
  */
 let openModal = (data) => {
     // Search modal
-    let modal = $('#modal-info')
+    let modal = $('#modal-info');
 
     // Search info modal
-    let title = modal.find('#modal-title')
-    let description = modal.find('#modal-description')
-    let extra = modal.find('#modal-extra')
+    let title = modal.find('#modal-title');
+    let description = modal.find('#modal-description');
+    let extra = modal.find('#modal-extra');
+    let imagen = modal.find('#modal-img');
+
 
     // Set info
     title.text(data.title)
     description.text(data.description)
+    
+    // Set Img
+    if(data.imagen){
+        imagen.attr({
+            src: `images/${data.imagen.src}`, 
+            alt: data.imagen.alt
+        });
+        imagen.addClass(data.imagen.class)
+    }
+
     // Set html tag
     extra.html(data.extra)
+
 
     // Open modal
     modal.modal('show');
