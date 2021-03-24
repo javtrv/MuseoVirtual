@@ -32,37 +32,32 @@ var hotspotBaseScene =
         "type": null,
         "text": null,
         "sceneId": null,
-        // "targetYaw": -23,
-        // "targetPitch": 2
+        // "": -23,
+        // "": 2
     }
 
+// Config
+console.log(config);
+// Iterar
+config.hotspots.forEach(
+    hotspot => {
 
-var dict = {
-    'valor_angulo_y' : 'pitch',
-    'valor_angulo_x' : 'yaw',
-    'titulo' : 'text',
-    'id_escena' : 'sceneId'
-}
+        let aux = {
+            'pitch' : hotspot['valor_angulo_y'],
+            'yaw' : hotspot['valor_angulo_x'],
+            'text' : hotspot['titulo'],
+            'type': hotspot['tipo'] || 1,
+            'sceneId' : hotspot['id_escena'],
+            'targetYaw': hotspot['targetYaw'] || -23,
+            'targetPitch': hotspot['targetPitch'] || 2
+        }
 
+        hotspotsArray.push(aux)
+    }
+)
 
- for (let index = 0; index < config['cantidad_hotspots']; index++) {
-
-    console.log('AQUI ')
-    console.log(config.hotspots[index])
-    Object.entries(config.hotspots[index]).forEach(([key, value]) => {
-        console.log(`${key} ${value}`);
-        hotspotBaseScene[dict[key]] = value
-        console.log('AQUI 2')
-        console.log(hotspotBaseScene)
-    });
-    hotspotBaseScene.type = "scene"
-    hotspotsArray.push(hotspotBaseScene)
-    console.log("ARRAY HOTSPOT")
-    console.log(hotspotsArray)
-
-
-
- }
+console.log("ARRAY HOTSPOT")
+console.log(hotspotsArray)
 
 
 
@@ -130,7 +125,7 @@ let pannellumViewer = pannellum.viewer('panorama', {
             // "panorama": "./titles/hacienda/pasillo-1/pasillo-1-8x.jpg",
             "panorama": "./titles/hacienda/pasillo-1/pasillo-1-4x-qudratic.jpg",
             // "hotSpots":hotspotsArray,
-            "hotSpots":hotspotsArrayCable,
+            "hotSpots":hotspotsArray,
 
             // "hotSpots": [
             //     {

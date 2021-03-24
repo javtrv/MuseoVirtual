@@ -15,5 +15,3 @@ var config = {
         },
     ],
 }
-
-console.log('Config loaded')
