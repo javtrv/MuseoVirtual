@@ -3,7 +3,110 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 var scene = urlParams.get('scene') || 'pasillo-1'
 
-console.log("SCENE: ", scene);
+
+var hotspotBaseCustom =
+    { 
+        "pitch": 0, //arriba - abajo
+        "yaw": 0, // izq - der
+        "cssClass": "custom-hotspot-img custom-img",
+        "createTooltipFunc": hotspot,
+        "createTooltipArgs": {
+            "title": "",
+            "id": "",
+            "modal":{
+                "title": "",
+                "description": "",
+                "imagen": {
+                    "src": ""
+                }
+            }
+        }
+    }
+    
+var hotspotsArray = []
+
+var hotspotBaseScene =
+    {
+        "pitch": null,
+        "yaw": null,
+        "type": null,
+        "text": null,
+        "sceneId": null,
+        // "targetYaw": -23,
+        // "targetPitch": 2
+    }
+
+
+var dict = {
+    'valor_angulo_y' : 'pitch',
+    'valor_angulo_x' : 'yaw',
+    'titulo' : 'text',
+    'id_escena' : 'sceneId'
+}
+
+
+ for (let index = 0; index < config['cantidad_hotspots']; index++) {
+
+    console.log('AQUI ')
+    console.log(config.hotspots[index])
+    Object.entries(config.hotspots[index]).forEach(([key, value]) => {
+        console.log(`${key} ${value}`);
+        hotspotBaseScene[dict[key]] = value
+        console.log('AQUI 2')
+        console.log(hotspotBaseScene)
+    });
+    hotspotBaseScene.type = "scene"
+    hotspotsArray.push(hotspotBaseScene)
+    console.log("ARRAY HOTSPOT")
+    console.log(hotspotsArray)
+
+
+
+ }
+
+
+
+
+ var hotspotsArrayCable = [
+    {
+        "pitch": 1,
+        "yaw": 200,
+        "type": "scene",
+        "text": "Pasillo 2",
+        "sceneId": "pasillo-2",
+        "targetYaw": -23,
+        "targetPitch": 2
+    },
+    {
+        "pitch": -3, //arriba - abajo
+        "yaw": 150, // izq - der
+        "cssClass": "custom-hotspot-img custom-img",
+        "createTooltipFunc": hotspot,
+        "createTooltipArgs": {
+            "title": "Mapa",
+            "id": "hotspot-mapa",
+            "modal":{
+                "title": "Mapa cuchi",
+                "description": "Un Amplio espacio donde frecuentemente hay eventos de Música de Cámara",
+                "imagen": {
+                    "src": "mapa-pasillo-1.jpg"
+                }
+            }
+        },
+    },
+    {
+        "pitch": -8, //arriba - abajo
+        "yaw": 304, // izq - der
+        "cssClass": "custom-hotspot-icon",
+        "createTooltipFunc": hotspot,
+        "createTooltipArgs": {
+            "title": "Salon de Concierto",
+            "id": "hotspot-concierto-icon"
+        },
+    }
+ ]
+
+
 
 let pannellumViewer = pannellum.viewer('panorama', {
     "showFullscreenCtrl": true,
@@ -26,45 +129,47 @@ let pannellumViewer = pannellum.viewer('panorama', {
             // "panorama": "./titles/hacienda/pasillo-1/pasillo-1_photos_v2_x4.jpg",
             // "panorama": "./titles/hacienda/pasillo-1/pasillo-1-8x.jpg",
             "panorama": "./titles/hacienda/pasillo-1/pasillo-1-4x-qudratic.jpg",
+            // "hotSpots":hotspotsArray,
+            "hotSpots":hotspotsArrayCable,
 
-            "hotSpots": [
-                {
-                    "pitch": 1,
-                    "yaw": 200,
-                    "type": "scene",
-                    "text": "Pasillo 2",
-                    "sceneId": "pasillo-2",
-                    "targetYaw": -23,
-                    "targetPitch": 2
-                },
-                {
-                    "pitch": -3, //arriba - abajo
-                    "yaw": 150, // izq - der
-                    "cssClass": "custom-hotspot-img custom-img",
-                    "createTooltipFunc": hotspot,
-                    "createTooltipArgs": {
-                        "title": "Mapa",
-                        "id": "hotspot-mapa",
-                        "modal":{
-                            "title": "Mapa cuchi",
-                            "description": "Un Amplio espacio donde frecuentemente hay eventos de Música de Cámara",
-                            "imagen": {
-                                "src": "mapa-pasillo-1.jpg"
-                            }
-                        }
-                    },
-                },
-                {
-                    "pitch": -8, //arriba - abajo
-                    "yaw": 304, // izq - der
-                    "cssClass": "custom-hotspot-icon",
-                    "createTooltipFunc": hotspot,
-                    "createTooltipArgs": {
-                        "title": "Salon de Concierto",
-                        "id": "hotspot-concierto-icon"
-                    },
-                },
-            ]
+            // "hotSpots": [
+            //     {
+            //         "pitch": 1,
+            //         "yaw": 200,
+            //         "type": "scene",
+            //         "text": "Pasillo 2",
+            //         "sceneId": "pasillo-2",
+            //         "targetYaw": -23,
+            //         "targetPitch": 2
+            //     },
+            //     {
+            //         "pitch": -3, //arriba - abajo
+            //         "yaw": 150, // izq - der
+            //         "cssClass": "custom-hotspot-img custom-img",
+            //         "createTooltipFunc": hotspot,
+            //         "createTooltipArgs": {
+            //             "title": "Mapa",
+            //             "id": "hotspot-mapa",
+            //             "modal":{
+            //                 "title": "Mapa cuchi",
+            //                 "description": "Un Amplio espacio donde frecuentemente hay eventos de Música de Cámara",
+            //                 "imagen": {
+            //                     "src": "mapa-pasillo-1.jpg"
+            //                 }
+            //             }
+            //         },
+            //     },
+            //     {
+            //         "pitch": -8, //arriba - abajo
+            //         "yaw": 304, // izq - der
+            //         "cssClass": "custom-hotspot-icon",
+            //         "createTooltipFunc": hotspot,
+            //         "createTooltipArgs": {
+            //             "title": "Salon de Concierto",
+            //             "id": "hotspot-concierto-icon"
+            //         },
+            //     },
+            // ]
         },
         "pasillo-2": {
             "title": "Pasillo 2",
